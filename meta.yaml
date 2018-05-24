@@ -1,0 +1,70 @@
+# This file created by conda-build 3.8.0
+# meta.yaml template originally from:
+# /remote/pytorch-cpu-0.4.0, last modified Tue Apr 24 13:23:25 2018
+# ------------------------------------------------
+
+package:
+    name: pytorch-cpu
+    version: 0.4.0
+source:
+    #git_rev: v0.4.0
+    git_rev: f9633b954268c493dabfe7c2047f9331cb4a621e
+    git_url: https://github.com/pytorch/pytorch
+build:
+    detect_binary_files_with_prefix: 'False'
+    number: '1'
+    string: py36_cpu_1
+requirements:
+    build:
+        - ca-certificates 
+        - bzip2 
+        - expat 
+        - libffi 
+        - libuv 
+        - ncurses  
+        - ninja
+        - openssl 
+        - rhash
+        - tk
+        - xz 
+        - yaml 
+        - zlib 
+        - libedit 
+        - libssh2 
+        - readline 
+        - libcurl 
+        - sqlite 
+        - python 
+        - certifi 
+        - numpy 
+        - pycparser  
+        - pyyaml 
+        - typing 
+        - cffi 
+        - setuptools 
+        - wheel 
+        - pip 
+        - openblas
+    run:
+        - python >=3.6,<3.7.0a0
+        - numpy >=1.11
+        - cffi
+        - ninja
+test:
+    commands:
+        - OMP_NUM_THREADS=4 python ./test/run_test.py || true
+    imports:
+        - torch
+    source_files:
+        - test
+about:
+    home: http://pytorch.org/
+    license: BSD 3-Clause
+    license_family: BSD
+    license_file: LICENSE
+    summary: PyTorch is an optimized tensor library for deep learning using GPUs and
+        CPUs.
+extra:
+    copy_test_source_files: true
+    final: true
+
